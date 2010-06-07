@@ -1,8 +1,14 @@
 #!/bin/bash
 set +x
 
-NAME=aulfeldt
-TASK=git
+if [ $# -ne 3 ]; then
+    echo "$0: name task password"
+    exit 1
+done
+
+NAME=$1
+TASK=$2
+PASSWORD=$3
 ME="Arthur Ulfeldt"
 
 vmbuilder esxi ubuntu \
@@ -13,7 +19,7 @@ vmbuilder esxi ubuntu \
 --rootsize=20000 \
 --user="$NAME" \
 --name="$ME" \
---pass=changeme \
+--pass="$PASSWORD"
 --hostname="$NAME-$TASK" \
 --domain='build.hytrust.com' \
 --ip=10.212.1.109 \
@@ -26,4 +32,10 @@ vmbuilder esxi ubuntu \
 --addpkg=subversion \
 --addpkg=bash-completion \
 --addpkg=wget \ 
---addpkg=openjdk-6-jdk
+--addpkg=openjdk-6-jdk \
+--addpkg=screen \
+--addpkg=wget \
+--addpkg=git-core \
+--addpkg=git-svn \
+--addpkg=gitk \
+
