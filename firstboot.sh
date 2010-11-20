@@ -18,10 +18,15 @@ cd ~/opt
 mkdir leiningen
 cd leiningen
 wget --no-check-certificate http://github.com/technomancy/leiningen/raw/stable/bin/lein
-
 echo 'export PATH=$PATH:~/opt/leiningen' >> ~/.bashrc
 chmod +x lein
 ./lein self-install
+
+cd ~/opt
+mkdir cake
+git clone git://github.com/ninjudd/cake.git
+echo 'export PATH=$PATH:~/opt/cake' >> ~/.bashrc
+
 
 mv -f ~/.emacs.d ~/.emacs.d.bak
 git clone http://github.com/eschulte/emacs-starter-kit.git ~/.emacs.d
