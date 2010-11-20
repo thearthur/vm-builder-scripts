@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 
-if [ $# -ne 3 ]; then
+if [ $# -ne 4 ]; then
     echo "$0: vm's-name username full-name password"
     exit 1
 fi

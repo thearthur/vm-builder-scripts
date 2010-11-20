@@ -1,8 +1,9 @@
 #!/bin/bash
-set +x
+set -x
 sudo dpkg-reconfigure tzdata
-echo time to set a real password (or prese enter to skip)
-#install clojure
+echo "time to set a real password (or prese enter to skip)"
+passwd
+
 mkdir ~/opt
 
 #emacs setup
@@ -47,16 +48,16 @@ cat <<EOF >> ~/.emacs.d/init.el
 (slime-setup)
 EOF
 
-echo setting up git 
+echo "setting up git "
 echo what is your Full Name
 read fullname
 git config --global user.name "$fullname"
-echo what is your email address
+echo "what is your email address"
 read email
 git config --global user.email "$email"
 
 git add init.el
 git commit -m 'initial clojure emacs configuration'
 
-echo you may need to log out and back in to load the profile changes
+echo "you may need to log out and back in to load the profile changes"
 
