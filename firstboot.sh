@@ -54,12 +54,9 @@ cat <<EOF >> ~/.emacs.d/init.el
 EOF
 
 echo "setting up git "
-echo what is your Full Name
-read fullname
-git config --global user.name "$fullname"
-echo "what is your email address"
-read email
-git config --global user.email "$email"
+git config --global user.name FULLNAME
+
+git config --global user.email EMAIL
 
 git add init.el
 git commit -m 'initial clojure emacs configuration'
